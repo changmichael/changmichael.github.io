@@ -7,4 +7,4 @@ So still testing this out as the first blog post, will be trouble-shooting how t
 
 ![testing](../images/TotalScore.png)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+So testing this out in order to eventually put up a blog post for Project 1 and Project 2
