@@ -9,7 +9,7 @@ The class performed a series of analyses on the SAT score data set, utilizing th
 
 Both Verbal and Math appeared to be negatively correlated to the Rate - once again, we're not sure what sort of inference we can make from that as the Rate field is not clearly defined.  If we assume that the rate is the participation rate, then the states with a lower participation rate seem to be doing great.  
 
-![ScoreBoxplots](../images/BoxScore.png)
+![ScoreBoxplots](../images/BoxScores.png)
 
 Finally we graphically represented the total scores nationally to a map of the US.  We see that the midwest does very well on total score, whereas the eastern coast of the US seems to underperform.  
 
