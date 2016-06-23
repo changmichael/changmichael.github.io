@@ -11,4 +11,8 @@ Looking at sub-datasets by peak performance, we see a slight difference in song 
 
 ![lengthsubgroups](../images/lengthsubgroup.png)
 
-Also going over the summary statistics we performed at the onset, it does seem that average song length decreases as you go from the total dataset to the top 50 to the top 10 and then examining number one hits.  We performed some further analysis
+Also going over the summary statistics we performed at the onset, it does seem that average song length decreases as you go from the total dataset to the top 50 to the top 10 and then examining number one hits.  We performed some further analysis trying to look at short songs versus long songs, a small improvement in peak position can be seen in short songs over long songs.  
+
+![longshortsongs](../images/longshortpeak.png)
+
+Next steps for this analysis would be determining if this was indeed a significant causation, and also seeing if there were other factors that showed similar effects.  Ideally the end result of this and further analyses would be to come up with a recommended "profile" to predict top performing tracks.  As a result of this initial analysis, it appears that having a slighty shorter song length might help, but also being grouped into the "rock" genre and being a member of Destiny's Child doesn't hurt either.  
