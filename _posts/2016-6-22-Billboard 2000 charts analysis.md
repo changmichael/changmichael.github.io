@@ -11,3 +11,4 @@ Looking at sub-datasets by peak performance, we see a slight difference in song 
 
 ![lengthsubgroups](../images/lengthsubgroup.png)
 
+Also going over the summary statistics we performed at the onset, it does seem that average song length decreases as you go from the total dataset to the top 50 to the top 10 and then examining number one hits.  We performed some further analysis
