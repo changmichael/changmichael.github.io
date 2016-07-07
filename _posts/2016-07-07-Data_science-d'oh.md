@@ -1,0 +1,6 @@
+---
+layout: post
+title: Data science salary analysis
+---
+
+We were tasked with examining data scientist starting salaries as were posted on the Indeed website.  We accumulated a robust sample of starting salaries across several different cities in the US in order to get an idea of what factors could be important in terms of cities and key words used in the job title.  After establishing a break in the range of salaries determined by the median of the entire sample, we took a look at the effects on being in the higher half or the lower half and found that while some cities seemed to be neutral or had a wider spectrum of salaries, other cities seemed to be skewed to the lower end of the range.  Aspiring data scientist might be wise to avoid job-searching in Austin and Los Angeles and stick more to the traditional hubs of Seattle and San Francisco (although some would say that the cost of living in both cities more than offset any perceived increase in pay).  Likewise having a couple of impressive words in your job title also implies you're being paid at better than the standard rate - being referred to as a "lead" or a "senior" job title comes with a slightly better chance of being in the upper half of pay.  
