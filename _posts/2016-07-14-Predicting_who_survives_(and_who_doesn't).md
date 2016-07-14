@@ -15,3 +15,4 @@ The one thing which really stands out is how much of a disadvantage it was to be
 
 ![ROCcurve](../images/titanicRoc.png)
 
+There are obvious improvements which we could do to help the effectiveness of our model and address data shortcomings.  The one point which I would like to review and address would be the age data.  Ideally we would be able to use logistic regression, KNN, or another model (or even a naive mean age for the specific sex/class/embark data point) to predict the ages of the passengers with missing information and then use the "more complete" dataset to make more accurate survivorship predictions.  Also, we could incorporate several of the newer modeling techniques we learned suchs as decision trees and bagging and boosting.  Unfortunately, this week's project had external time pressures, but these things would be something we would look to do in subsequent projects.  
