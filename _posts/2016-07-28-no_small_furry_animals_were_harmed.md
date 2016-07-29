@@ -6,22 +6,18 @@ title: No small furry animals were harmed...
 
 Ah... the last blog post.  I'll look back fondly on these late nights typing something absentmindedly while listening to Steven Colbert on the tv.  As a final weekly project, we were tasked with looking at airplane delay data, given several tables of data through SQL.  Data-munging was thankfully not as terrible as it was for the past few projects, which was really great - more time was spent on the actual modeling and analysis, something which in the past had to be skimped upon due to time concerns.  I compiled all the data tables in psql, then loaded them all into panda dataframes for further analysis.  
 
-So after taking several deep breaths, I started the analysis.  Looking at the nature of the project, I decided to use regressor models and ran them as a batch (decision trees, bagged decision trees, random forest, extra trees, adaboost, and gradient boost), and started by looking at feature importance for all of the models.  I've posted one of the feature models immediately below, but the top 5 features remained consistent throughout all the models.  
+It appeared to be a pretty straightforward project - examine how the data is structured, see if there are natural clusters that arise in the data.  Also, look at the delays at airports and see what factors could be addressed to reduce longthy delays.  
 
-![featureselection](../images/featuresDT.png)
+We took a look at the data and ran them through our clustering models to see if there were any natural clusters to be found.  There were none.  We ran some basic clustering models and found very low silhouette scores, as demonstrated by the following graph.  
 
-I created a new dataset to reflect the features and tested them to make sure they captured most of the effects of the original (full) dataset.  So the scores of the full set of features are as follow:
+![uglycluster](../images/uglycluster.png)
 
-![modelscores](../images/fullScores.png)
+Hierarchical clustering fared a bit better, but as you could imagine it got a bit... bushy towards the ends.  The silhouette score was respectable, with fewer clusters, but a more defined silhouette.  
 
-Changing to the dataset with the features as specified in the feature selection step, we get the following set of scores.
+![wowItsBushy](../images/bushy.png)
 
-![modelscores](../images/newScores.png)
+So hierarchical clustering looks better.  But perhaps PCA can make things look a bit better.  We ran PCA and found that the majority of the variance could be explained by the first three eigenvalues.  The first principle component looks to be particularly effective, capturing most of the variance of the features as demonstrated in the following graphs.
 
-We also tried running a gridsearch to optimize the hyperparameters, but after getting results for the Decision Tree Regressor model, we tried it on the other models, only to get stuck in the calculations.  Since time was running out, I decided to press ahead with just the decision tree regressor models, but if we were afforded more time, we would look to run gridsearch cv to completion on all the models.  In the meantime, let's look at the data visualization for decision trees as per the graph below.  As we can see, there seem to be several maximum depths that would give good results, but having a max depth of '5' seems to be a touch better than the rest.  
+![featureselection](../images/PC1.png)
 
-![cvscore](../images/CVscore.png)
-
-I took a look at adding the TF-IDF tools we learned and found some improvement, but the main issue remains the data.  Seeing that I now have an easy way to pull the relevant information about movies through the OMDB api, I should have looked to accrue a larger set of movies, rather than the suggested top 250.  Having the larger dataset would give us more robust findings with all our models, instead of having a small dataset focused on one small range of scores (top movies) we could have a more fuller range of scores and a more useful model.  
-
-So takeaway thoughts from this project was that the data sourcing/cleaning/munging step was very important - had it been initiated correctly, i believe I could have performed the analyses much better and more comprehensively.  Another takeaway thought was to re-do all the models using the Classifier counterparts, simply to get used to the different functions.  Because, you know, we're all about the learning here.  Seriously.  
+The silhouette scores of the clustering models were mixed after the PCA - the K-Means silhouette score is dramatically improved whereas the hierarchical clustering silhouette score was basically the same (okay a teeny bit better).  But looking at the logistic regression and random forest models used to predict FAA region and long/short delays, we find that the original feature dataframe had a much better result (as defined by accuracy score).  And also, we find that adding the PC factors to the original features dataframe leads to an even better result (although that analysis was mistakenly deleted late yesterday night (in a fit of idiocy)).  In a nutshell, we find that the features that were most important in determining short delays versus long delays are average taxi time out, departure diversions, and average gate arrival delay, so addressing these three factors will help lesson the length of delays.  Now as per the benefit of PCA for model accuracy or effectiveness, I'm not quite sure how to address that... as discussed above, the clustering models seemed to work better, but the logistic regression and random forest models didn't work as well.  It did provide another, interesting way to analyze and look at the data, but it didn't look like the most effective way after doing the classifier results. Although the PCA and original features dataframe together did seem promising, it seems a bit superfluous... it would be better just to use the original set of features as the PCA would be a bit repetitive.  Anyway an interesting question which will be asked at an upcoming office hours session.  
